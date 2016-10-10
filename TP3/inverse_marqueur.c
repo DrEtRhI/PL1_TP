@@ -23,7 +23,7 @@ int main(){
 
 	S.Longueur = compt;
 	printf("La séquence en ordre inverse correspond à : ");
-	for (i = S.Longueur-1 ; i >= 0 ; i--){
+	for (i = S.Longueur-1 ; i >= 0 ; i = i - 1){
 		printf("%d ",S.T[i]);
 	}
 	printf("\n");
