@@ -1,0 +1,17 @@
+Travail sur une séquence de 15 valeurs ?:
+L'entier n°1, vaut: 1 
+L'entier n°2, vaut: 2 
+L'entier n°3, vaut: 3 
+L'entier n°4, vaut: 4 
+L'entier n°5, vaut: 5 
+L'entier n°6, vaut: 6 
+L'entier n°7, vaut: 7 
+L'entier n°8, vaut: 8 
+L'entier n°9, vaut: 9 
+L'entier n°10, vaut: 10 
+L'entier n°11, vaut: 11 
+L'entier n°12, vaut: 12 
+L'entier n°13, vaut: 13 
+L'entier n°14, vaut: 14 
+L'entier n°15, vaut: 15 
+La séquence en ordre inverse est :15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 
