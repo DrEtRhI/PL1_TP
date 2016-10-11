@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1475612095 source:d:\eric\documents\cours cci\programmation_pl1\tp\test\max3val\main.c
+	<stdio.h>
+	<stdlib.h>
+
