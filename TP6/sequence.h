@@ -1,14 +1,11 @@
+/* definition du type SeqInt pour une représenation en liste chainee*/
 
-/* Type Sequence (representation contigue dans un tableau) */
+typedef struct cellule{
+	int E ;  /* champ valeur de la cellule */
+	struct cellule *suiv ;    /* champ adresse de la cellule suivante */
+} Cellule ;
 
-#define LGMAX 30
-
-/* definition du type SeqInt */
-
-typedef struct {
-	int T[LGMAX] ;  /* tableau contenant les elements de la sequence */
-	int nbelem ;    /* nombre d'elements presents dans la sequence */
-} SeqInt ;
+typedef Cellule *SeqInt; /* definition du type pointeur de SeqInt */
 
 /* en-tetes des fonctions sur SeqInt */
 
