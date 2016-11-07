@@ -1,12 +1,12 @@
-mainSeqCont : main.o sequence.o 
-	@echo Creation du fichier executable mainSeqCont
-	gcc -g -Wall -Werror -o mainSeqCont main.o sequence.o
+mainSeqChain : main.o sequence.o 
+	@echo Creation du fichier executable mainSeqChain
+	gcc -g -Wall -Werror -o mainSeqChain main.o sequence.o
 	@echo ____________________________________________
-main.o : main.c sequencecontnoorder.h
+main.o : main.c sequencechaineenoorder.h
 	@echo Creation du fichier main.o
 	gcc -g -Wall -Werror -c main.c
 	@echo ____________________________________________
-sequence.o : sequence.c sequencecontnoorder.h
+sequence.o : sequence.c sequencechaineenoorder.h
 	@echo Creation du fichier sequence.o
 	gcc -g -Wall -Werror -c sequence.c
 	@echo _____________________________________________

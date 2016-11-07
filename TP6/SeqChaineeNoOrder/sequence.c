@@ -1,4 +1,4 @@
-#include "sequence.h"
+#include "sequencechaineenoorder.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -78,25 +78,4 @@ void Supprimer(SeqInt *s, int x){
 		free(AC);
 	}	
 	
-}
-
-int main(){
-	SeqInt S;
-	int x = 3;
-	int y = 8000;
-	int z = 1;
-	int ok;
-	S = NULL;
-	LireSeq(&S);
-	EcrireSeq(S);
-	ok = EstPresent(S, x);
-	if (ok){
-		printf("%d est bien présent dans la liste chainée\n", x);
-	}else{
-		printf("%d n'est pas présent dans la liste chainée\n", x);
-	}
-	Inserer(&S, y);
-	EcrireSeq(S);
-	Supprimer(&S, z);
-	EcrireSeq(S);
 }
