@@ -5,29 +5,54 @@
 void LireSeq (SeqInt *s){
 
 	int i, n;
-	SeqInt AC, Q;
+	SeqInt N, AC, AP;
+	//SeqInt Q;
 	i = 0;
+	
 
 		printf("Veuillez entrez le nombre de d'elements total de votre sequence :\n");
 		scanf("%d", &n);
 		
-		AC = (Cellule*) malloc (sizeof(Cellule)); //creation du singleton
+		N = (Cellule*) malloc (sizeof(Cellule)); //creation du singleton
 		printf("Entrez la valeur de l'element %d sur %d :\n", i + 1, n);
-		scanf("%d", &(*AC).E);
-		*s = AC;
-		Q = AC;
+		scanf("%d", &(*N).E);
+		(*N).suiv = NULL;
+		*s = N;
+		//Q = N;
+		//(*Q).suiv = NULL;
 		i++;
-	
+		AC = *s;
+		AP = *s;
+
 		while (i < n){
 			
-			AC = (Cellule*) malloc (sizeof(Cellule));
+			N = (Cellule*) malloc (sizeof(Cellule));
 			printf("Entrez la valeur de l'element %d sur %d :\n", i + 1, n);
-			scanf("%d", &(*AC).E);
-			(*Q).suiv = AC;
-			Q = AC;
+			scanf("%d", &(*N).E);
+			(*N).suiv = NULL;
+				while (AC != NULL && (*AC).E <= (*N).E) {
+					AP = AC;					
+					AC = (*AC).suiv;
+				}			
+				if (AC !=	NULL && (*AP).suiv == AC){
+					(*N).suiv = AC;
+					(*AP).suiv = N;
+				}else if (AC != NULL){
+					(*N).suiv = AC;
+					*s = N;
+				}else{
+					(*AP).suiv = N;
+					AP = N;
+					(*AP).suiv = NULL;		
+					/*(*Q).suiv = N;
+					Q = N;
+					(*Q).suiv = NULL;*/
+				}
 			i++;
+			AC = *s;
+			AP = *s;
 		}
-		(*Q).suiv = NULL;
+		
 		
 }
 
@@ -57,46 +82,34 @@ int EstPresent(SeqInt s, int x){
 
 void Inserer(SeqInt *s, int x){
 
-	SeqInt AC;
-		AC = (Cellule*) malloc (sizeof(Cellule));
-		(*AC).E = x;
-		(*AC).suiv = *s;
-		*s = AC;	
+	SeqInt AP, AC, N;
+	AC = *s;
+	N = (Cellule*) malloc (sizeof(Cellule));
+	(*N).E = x;
+	while (AC != NULL && (*AC).E <= (*N).E) {
+				AP = AC;					
+				AC = (*AC).suiv;
+	}			
+		(*N).suiv = AC;
+		(*AP).suiv = N;	
 }
-
 void Supprimer(SeqInt *s, int x){
 	
 	SeqInt AC, AP;
 	AC = *s;	
-	
+	AP = *s;
 	while (AC != NULL && (*AC).E != x){
 		AP = AC;
 		AC = (*AC).suiv;
 	}
-	if (AC != NULL){
+	if (AC != NULL && (*AP).suiv == AC){
 		(*AP).suiv = (*AC).suiv;
 		free(AC);
-	}	
+	}else if (AC != NULL){
+		*s = (*AC).suiv;
+		free(AC);
+	}
+		
 	
 }
 
-int main(){
-	SeqInt S;
-	int x = 3;
-	int y = 8000;
-	int z = 1;
-	int ok;
-	S = NULL;
-	LireSeq(&S);
-	EcrireSeq(S);
-	ok = EstPresent(S, x);
-	if (ok){
-		printf("%d est bien présent dans la liste chainée\n", x);
-	}else{
-		printf("%d n'est pas présent dans la liste chainée\n", x);
-	}
-	Inserer(&S, y);
-	EcrireSeq(S);
-	Supprimer(&S, z);
-	EcrireSeq(S);
-}

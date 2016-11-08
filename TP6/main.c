@@ -1,5 +1,6 @@
 
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "sequence.h"
 
 /* Programme de test pour les fonctions du type SeqInt */
