@@ -1,4 +1,4 @@
-#include "sequence.h"
+#include "sequencechaineeorder.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -90,8 +90,13 @@ void Inserer(SeqInt *s, int x){
 				AP = AC;					
 				AC = (*AC).suiv;
 	}			
+	if ((*AP).suiv == AC){
 		(*N).suiv = AC;
-		(*AP).suiv = N;	
+		(*AP).suiv = N;
+	}else if (AC != NULL){
+		(*N).suiv = AC;
+		*s = N;
+	}	
 }
 void Supprimer(SeqInt *s, int x){
 	
